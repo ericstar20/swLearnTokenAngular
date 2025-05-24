@@ -1,0 +1,11 @@
+<h2>Login</h2>
+<input [(ngModel)]="username" placeholder="Username" />
+<br />
+<input [(ngModel)]="password" type="password" placeholder="Password" />
+<br />
+<button (click)="login()">Login</button>
+
+<hr />
+
+<button (click)="getProfile()">Get Profile</button>
+<p>{{ profileMessage }}</p>
