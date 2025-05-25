@@ -15,12 +15,12 @@ export class AppComponent {
   password = '';
   token = '';
   profileMessage = '';
-
+  apiUrl = 'http://localhost:5135/api';
   constructor(private http: HttpClient) {}
 
   login() {
     this.http
-      .post<{ token: string }>('http://localhost:5135/api/login', {
+      .post<{ token: string }>(this.apiUrl + '/login', {
         username: this.username,
         password: this.password,
       })
@@ -35,7 +35,7 @@ export class AppComponent {
 
   getProfile() {
     this.http
-      .get<{ message: string }>('http://localhost:5135/api/profile', {
+      .get<{ message: string }>(this.apiUrl + '/profile', {
         headers: { Authorization: `Bearer ${this.token}` },
       })
       .subscribe({
